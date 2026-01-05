@@ -1,0 +1,149 @@
+
+
+/* half circle image */
+
+
+
+.section{
+    height: 500px;
+    /* border: #aaaaaa86 0.3px solid; */
+}
+.sectionText{
+    text-align: center;
+}
+
+.section .Domains{
+    display: flex;
+    justify-content: center;
+    /* align-items: center; */
+    margin-top: 20px;
+    gap: 5px;
+    flex-wrap: wrap;
+  
+}
+
+    .section .Domains div{
+        /* border: #000000 1px solid; */
+         box-shadow: 2px 2px 5px rgb(175, 175, 175);
+        border-radius: 10px;
+        padding: 0px;
+    
+        margin-top: 0px;
+    }
+
+        .section .Domains div p{
+            margin: 5px;
+            padding: 3px;
+        }
+        .section .projects{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 20px;
+            gap: 10px;
+            flex-wrap: wrap;
+            /* border: #aaaaaa86 0.3px solid; */
+            /* height: 5000px; */
+        }
+        .section .projects div{
+            border: #aaaaaa86 0.3px solid;
+            border-radius: 10px;
+            padding: 0px;
+            height: 200px;
+            width: 200px;
+            margin-top: 0px;
+            transition: transform 0.2s; /* transition-transform duration-200 */
+            cursor: pointer;
+            /* box-shadow: 0px 0px 5px rgba(8, 8, 8, 0.623); */
+           
+        }
+
+        
+        .section .projects div:hover {
+        transform: scale(1.10);   
+       
+        }
+
+     
+        .section .projects div .Project-Image{
+            
+            height: 150px;
+            width: 200px;
+            /* border: #000000 0.5px solid; */
+            border-radius: 10px;
+            
+           
+        }
+
+
+@media screen and (max-width: 855px) {
+
+    .section .projects div:hover {
+        transform: scale(1.10);   
+       
+        }
+
+    .section{
+        /* height: 700px; */
+    }
+    .section .projects{
+        height: auto;
+        border: #aaaaaa86 0.3px solid;
+       
+    }
+    /* .section .projects div .Project-Image{
+        
+        height: 100px;
+        width: 150px;
+    } */
+
+}
+
+@media screen and (max-width: 855px) {
+
+    .section .projects div:hover {
+        transform: scale(1.10);   
+       
+        }
+
+    .section{
+        /* height: 500px; */
+    }
+    .section .projects{
+        /* height: auto;
+        margin-top: 50px; */
+        /* border: #aaaaaa86 0.3px solid; */
+       
+    }
+}
+
+@media screen and (max-width: 446px) {
+
+    .section .projects div:hover {
+        transform: scale(1.10);   
+       
+        }
+
+    .section{
+        height: 1200px;
+        border: #ff000086 0.3px solid;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        padding-top: 200px;
+
+    }
+    .section .projects{
+        /* height: auto;
+        margin-top: 50px; */
+        border: #0400ff86 0.3px solid;
+        height: auto;
+        
+
+
+       
+    }
+
+    
+}
+

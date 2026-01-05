@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="/Css/Project.css">
+
+
+        <style>
+        .quarter-circle {
+        position: absolute;
+        
+        left: 0;
+        width: 200px; /* Adjust size as needed */
+        height: 200px; /* Adjust size as needed */
+        background-color: #f87000; /* Change color as needed */
+        border-top-left-radius: 200px;
+        border-top-right-radius: 0;
+        border-bottom-left-radius: 0;
+        /* border-top-right-radius: 1500px; */
+        border-bottom-right-radius: 5000%;
+            z-index: -1; /* Ensure it stays behind other content */
+        }
+    </style>
+    </head>
+    <body>
+        <!-- <div class="quarter-circle"></div> -->
+        <!-- <div class="hamburger-menu">
+            <div>
+                <ul>
+                    <li><a href="http://127.0.0.1:5501/index.html">Home</a></li>
+                    <li><a href="http://127.0.0.1:5501/About.html">About</a></li>
+                    <li><a href="http://127.0.0.1:5501/Skills.html">Skills</a></li>
+                    <li><a href="http://127.0.0.1:5501/Projects.html">Projects</a></li>
+                </ul>
+                 <img src="Assets/KAT.jpeg" alt="Circular Image" class="Circular-Image">
+               
+            </div>
+        </div> -->
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+        <div class="section">
+            <div class="sectionText">
+                <h1>My Projects</h1>
+                <p>Here are some of the projects I've worked on.</p>
+            </div>
+            <div class="Domains">
+                <div class="sectionContent" id="All" onclick="handleDomainClick(event);" style="background-color: orange;"  style="color: white;">
+                    <p >All</p>
+                </div>
+                <div class="sectionContent" id="web-development" onclick="handleDomainClick(event);">
+                    <p>web-development</p>
+                </div>
+                <div class="sectionContent" id="designs" onclick="handleDomainClick(event);">
+                    <p>designs</p>
+                </div>
+                <div class="sectionContent" id="case-studies" onclick="handleDomainClick(event);">
+                    <p>case-studies</p>
+                </div>
+           
+            </div>
+            <div class="projects">
+                <!-- <div class="project" id="web-developmentProject">web-developmentProject</div>
+                <div class="project" id="web-developmentProject">web-developmentProject</div> -->
+                <div class="designsProject" id="designsProject">
+                    <img src="Assets/Screenshot 2025-10-27 095249.png" alt="Design1" class="Project-Image">
+                    designsProject
+                </div>
+                <div class="case-studiesProject" >
+                    case-studiesProject
+                </div>
+                <div class="web-developmentProject" >
+                    web-developmentProject
+                </div>
+                <div class="web-developmentProject">
+                    web-developmentProject
+                </div>
+            </div>
+            
+
+        </div>
+        <div></div>
+
+
+        <!-- <div id="Footer" class="rectangle">
+            <img src="Assets/keyboard_double_arrow_up_24dp_1F1F1F.svg" alt="Logo1" class="arrowup" onclick="toggleFooter();" >
+            <div id="footerText" style="display: none;"></div>
+            
+        </div> -->
+        
+        
+        <script src="/script.js"></script>
+    </body>
+</html>
