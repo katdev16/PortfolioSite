@@ -2,8 +2,19 @@
     import React from 'react'
     import screenshotImg from '../assets/Screenshot 2025-10-27 095249.png'
     import '../css/Project.css'
+    import { handleDomainClick } from '../script'
 
     const Projects = () => {
+        const onDomainClick = (e) => {
+            if (typeof handleDomainClick === 'function') {
+                handleDomainClick(e)
+            } else {
+                // fallback behavior while a script-based handler is missing
+                const id = e.currentTarget.id
+                console.log('Domain clicked:', id)
+            }
+        }
+
         return (
             <div className="section">
                 <div className="sectionText">
@@ -12,16 +23,16 @@
                 </div>
 
                 <div className="Domains">
-                    <div className="sectionContent" id="All" style={{ backgroundColor: 'orange', color: 'white' }}>
+                    <div className="sectionContent" onClick={onDomainClick} id="All" style={{ backgroundColor: 'orange', color: 'white' }}>
                         <p>All</p>
                     </div>
-                    <div className="sectionContent" id="web-development">
+                    <div className="sectionContent" onClick={onDomainClick} id="web-development">
                         <p>web-development</p>
                     </div>
-                    <div className="sectionContent" id="designs">
+                    <div className="sectionContent" onClick={onDomainClick} id="designs">
                         <p>designs</p>
                     </div>
-                    <div className="sectionContent" id="case-studies">
+                    <div className="sectionContent" onClick={onDomainClick} id="case-studies">
                         <p>case-studies</p>
                     </div>
                 </div>

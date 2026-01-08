@@ -8,7 +8,8 @@ import katImg from '../assets/KAT.jpeg'
 import linkedinImg from '../assets/icons8-linkedin-48.png'
 import githubImg from '../assets/icons8-github-30.png'
 import emailIcon from '../assets/attach_email_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg'
-
+import { showsidebar } from '../script.js'
+import { closesidebar } from '../script.js'
 export const Headersection = () => {
 
      const quarterCircleStyle = {
@@ -34,7 +35,7 @@ export const Headersection = () => {
                 <nav>
                     <ul className="sidebar">
                         <li>
-                            <img src={closeIcon} alt="close" />
+                            <img src={closeIcon} onClick={closesidebar} alt="close" />
                         </li>
                         <li>
                             <Link to="/">Home</Link>
@@ -71,7 +72,7 @@ export const Headersection = () => {
                     </nav>
                 </div>
 
-                <img src={menuIcon} className="mobileMenu" alt="Menu Icon" />
+                <img src={menuIcon} onClick={showsidebar} className="mobileMenu" alt="Menu Icon" />
             </div>
         </div>
   )
