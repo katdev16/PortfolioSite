@@ -16,6 +16,7 @@ import { Footersection } from './components/footerSection.jsx'
 import Home from './pages/home.jsx'
 import Skills from './pages/skills.jsx'
 import Projects from './pages/projects.jsx'
+import ParticlesJS from './components/particles.jsx'
 
 
 function App()  {
@@ -23,6 +24,7 @@ function App()  {
     return (
         <BrowserRouter>
             <Headersection />   
+            <ParticlesJS />
             <Routes>
                 <Route path='/' element={<Home />} />
                 <Route path='/about' element={<About />} />

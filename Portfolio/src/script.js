@@ -1,5 +1,5 @@
 let isFooterOpen = false;
-function TopFunction() {
+export function TopFunction() {
   // alert("Hello");
 
   const footer = document.getElementsByClassName("MainBackground")[0];
@@ -19,10 +19,10 @@ function TopFunction() {
 
     //smaller screen size
     if(mediaQueryNew.matches){
-      footer.style.height = "900px";
+      footer.style.height = "990px";
 
     }else{
-      footer.style.height = "600px";
+      footer.style.height = "700px";
       
       footerText.style.display = "block"; // Show text
     }

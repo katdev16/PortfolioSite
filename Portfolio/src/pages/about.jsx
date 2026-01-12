@@ -7,6 +7,9 @@ import schoolIcon from '../assets/school_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.
 import workIcon from '../assets/work_history_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg'
 import growthIcon from '../assets/trending_up_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg'
 import '../css/AboutStylesheet.css'
+import { TopFunction } from '../script'
+
+
 export const About = () => {
     const scrollToTop = () => {
         if (typeof window !== 'undefined') {
@@ -16,6 +19,7 @@ export const About = () => {
 
     return (
         <>
+        <div className='Section'> 
             <div className="About">
                 <div className="AboutMe">
                     <h1>About Me</h1>
@@ -96,7 +100,7 @@ export const About = () => {
                     </div>
                 </div>
 
-                <img src={arrowIcon} className="slider1" onClick={scrollToTop} alt="scroll up" />
+                <img src={arrowIcon} className="slider1" onClick={TopFunction} alt="scroll up" />
             </div>
 
             <h1>Background</h1>
@@ -120,6 +124,7 @@ export const About = () => {
                     </p>
                 </div>
             </div>
+        </div>
         </>
     )
 }
