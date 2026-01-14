@@ -38,11 +38,31 @@ const useTypewriter = (texts, speed = 100) => {
   return displayedText
 }
 
+
+
+
 const Home = () => {
     const displayedText = useTypewriter([
       'UI/UX Designer',
       'Developer'
     ], 100)
+
+
+
+        
+    const handleDownload = () => {
+        const link = document.createElement('a');
+        link.href = '/docs/KatlegoDhlaminiResume.pdf'; // path to your PDF file
+        link.download = 'KatlegoDhlaminiResume.pdf'; // suggested filename
+        document.body.appendChild(link);
+        link.click();
+        link.remove();
+    };
+
+   
+    
+
+
     
     return (
         <div className="container">
@@ -50,11 +70,17 @@ const Home = () => {
                 <h2>I'm</h2>
                 <h1>Katlego</h1>
                 <h1>Dhlamini</h1>
-                <button>Resume</button>
+                <button onClick={handleDownload}>Resume</button>;
                 <div className="logo">
-                    <img src={linkedinImg} alt="LinkedIn" className="responsive-image" />
-                    <img src={githubImg} alt="GitHub" className="responsive-image" />
-                    <img src={emailIcon} alt="Email" className="responsive-image" />
+                    <a href="https://www.linkedin.com/in/katlego-dhlamini-932636284/" target="_blank" rel="noopener noreferrer">
+                        <img src={linkedinImg} alt="LinkedIn" className="responsive-image" />
+                    </a>
+                    <a href="https://github.com/katdev16" target="_blank" rel="noopener noreferrer">
+                        <img src={githubImg} alt="GitHub" className="responsive-image" />
+                    </a>
+                    <a href="mailto:katlegodhlamini2003@gmail.com">
+                        <img src={emailIcon} alt="Email" className="responsive-image" />
+                    </a>
                 </div>
             </div>
 

@@ -45,14 +45,14 @@ export const About = () => {
                     <div style={{ display: 'none' }} id="MainBackgroundText">
                         <div className="Background">
                             <div className="Edu">
-                                <h1>Education</h1>
+                                <h1>Experience</h1>
                                 <p>
                                     Professional background
                                     <br /> and career progression
                                 </p>
                             </div>
                             <div className="Exp">
-                                <h1>Experience</h1>
+                                <h1>Education</h1>
                                 <p>
                                     Professional background
                                     <br /> and career progression
@@ -82,10 +82,10 @@ export const About = () => {
                                 </p>
                             </div>
                             <div className="Exp">
-                                <h3>Ui/Ux Designer - Nagarro</h3>
+                                <h3>Computer Software Engineering - Wethinkcode</h3>
                                 <div className="date">
                                     <img src={timeIcon} alt="time" className="Calendar" />
-                                    <p>April 2025 - Present</p>
+                                    <p>Sep 2023 - Dec 2014</p>
                                 </div>
                                 <div className="date">
                                     <img src={locationIcon} alt="location" className="Calendar" />
