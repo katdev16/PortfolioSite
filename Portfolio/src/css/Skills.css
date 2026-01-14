@@ -22,7 +22,7 @@ body{
     }
     .section .sectionSkills{
         margin-top: 50px;
-        height: 500px;
+        height: auto;
         width: 80%;
         /* border: 2px solid rgb(255, 0, 0); */
         display: flex;
@@ -119,7 +119,17 @@ body{
         display: flex;
         justify-content: flex-start;
         padding-top: 150px;
+        padding-bottom: 200px;
        
     }
     
+}
+
+@media screen and (max-width: 680px) {
+    .section{
+
+        /* border: orange 2px solid; */
+        padding-bottom: 350px;
+        
+    }
 }

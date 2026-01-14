@@ -282,6 +282,14 @@
     .MainBackground{
         flex-direction: column;
         height: auto;
+       
+    }
+
+    .MainBackground2{
+        flex-direction: column;
+        height: auto;
+        padding-bottom: 50px;
+       
     }
     
     

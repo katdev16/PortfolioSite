@@ -84,11 +84,11 @@
         }
 
     .section{
-        /* height: 700px; */
+        height: 700px;
     }
     .section .projects{
         height: auto;
-        border: #aaaaaa86 0.3px solid;
+        /* border: #aaaaaa86 0.3px solid; */
        
     }
     /* .section .projects div .Project-Image{
@@ -125,18 +125,19 @@
         }
 
     .section{
-        height: 1200px;
-        border: #ff000086 0.3px solid;
+        height: auto;
+        /* border: #ff000086 0.3px solid; */
         display: flex;
         flex-direction: column;
         justify-content: flex-start;
         padding-top: 200px;
+        padding-bottom: 50px;
 
     }
     .section .projects{
         /* height: auto;
         margin-top: 50px; */
-        border: #0400ff86 0.3px solid;
+        /* border: #0400ff86 0.3px solid; */
         height: auto;
         
 

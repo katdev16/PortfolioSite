@@ -31,7 +31,9 @@ export const Footersection = () => {
                     <div id="footerText">
                         <div className="footer-content">
                             <h1>Lets connect there</h1>
+                            <a href="mailto:katlegodhlamini2003@gmail.com">
                             <button className="HireMe">Hire me</button>
+                            </a>
                         </div>
 
                         <hr style={{ width: '85%', marginLeft: 'auto', marginRight: 'auto' }} />
@@ -48,9 +50,16 @@ export const Footersection = () => {
                                     <br /> contribution or colabration
                                 </p>
                                 <div className="logo2">
-                                    <img src={linkedinImg} alt="LinkedIn" className="responsive-image" />
-                                    <img src={githubImg} alt="GitHub" className="responsive-image" />
-                                    <img src={emailIcon} alt="Email" className="responsive-image" />
+
+                                    <a href="https://www.linkedin.com/in/katlego-dhlamini-932636284/" target="_blank" rel="noopener noreferrer">
+                                        <img src={linkedinImg} alt="LinkedIn" className="responsive-image" />
+                                    </a>
+                                    <a href="https://github.com/katdev16" target="_blank" rel="noopener noreferrer">
+                                        <img src={githubImg} alt="GitHub" className="responsive-image" />
+                                    </a>
+                                    <a href="mailto:katlegodhlamini2003@gmail.com">
+                                        <img src={emailIcon} alt="Email" className="responsive-image" />
+                                    </a>
                                 </div>
                             </div>
 
