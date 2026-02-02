@@ -10,69 +10,88 @@
     import iconReactNative from '../assets/icon.png'
     import '../css/Skills.css'
 
-    const Skills = () => {
-        return (
-            <>
-                <div className="section">
-                    <div className="text">
-                        <h1>My Skills</h1>
-                        <p>Here are some of the skills I've acquired along my journey.</p>
-                    </div>
-                    <div className="sectionSkills">
-                        <div className="section-content">
-                            <img src={frontendImg} alt="Development" />
-                            <h2>Development</h2>
+const Skills = () => {
+    return (
+        <div className="skills-container">
+            {/* Hero Section */}
+            <section className="skills-hero">
+                <div className="hero-content">
+                    <h1 className="skills-title">My Skills</h1>
+                    <p className="skills-subtitle">
+                        Here are some of the skills I've acquired along my journey.
+                    </p>
+                </div>
+
+                <div className="main-skills-grid">
+                    <div className="skill-card main-skill-card">
+                        <div className="skill-image-container">
+                            <img src={frontendImg} alt="Development" className="skill-image" />
+                            <div className="skill-overlay">
+                                <h3>Development</h3>
+                                <p>Building robust and scalable applications</p>
+                            </div>
                         </div>
-                        <div className="section-content">
-                            <img src={uxImg} alt="Ui/UX Design" />
-                            <h2>Ui/UX Design</h2>
+                    </div>
+
+                    <div className="skill-card main-skill-card">
+                        <div className="skill-image-container">
+                            <img src={uxImg} alt="UI/UX Design" className="skill-image" />
+                            <div className="skill-overlay">
+                                <h3>UI/UX Design</h3>
+                                <p>Creating intuitive and engaging user experiences</p>
+                            </div>
                         </div>
                     </div>
                 </div>
+            </section>
 
-                <hr />
+            {/* Technical Skills Section */}
+            <section className="technical-skills">
+                <div className="technical-header">
+                    <h2>Technical Stacks</h2>
+                    <p>Technologies I work with</p>
+                </div>
 
-                <div className="section2">
-                    <div className="text">
-                        <div className="content">
-                            <h1>Technical Stacks</h1>
-                            <p>Technologies I work with.</p>
-                        </div>
-                    </div>
-                    <div className="sectionSkills">
-                        <div className="section-content2">
-                            <div>
+                <div className="tech-grid">
+                    <div className="tech-category">
+                        <h3>Frontend Development</h3>
+                        <div className="tech-items">
+                            <div className="tech-item">
                                 <img src={group80} alt="Javascript" />
-                                <p>Javascript</p>
+                                <span>Javascript</span>
                             </div>
-                            <div>
+                            <div className="tech-item">
                                 <img src={group81} alt="HTML" />
-                                <p>HTML</p>
+                                <span>HTML</span>
                             </div>
-                            <div>
-                                <img src={icon1} alt="React" />
-                                <p>React</p>
+                            <div className="tech-item">
+                                <img src={group78} alt="CSS" />
+                                <span>CSS</span>
                             </div>
                         </div>
+                    </div>
 
-                        <div className="section-content2">
-                            <div>
-                                <img src={group78} alt="CSS" />
-                                <p>Css</p>
+                    <div className="tech-category">
+                        <h3>Frameworks & Tools</h3>
+                        <div className="tech-items">
+                            <div className="tech-item">
+                                <img src={icon1} alt="React" />
+                                <span>React</span>
                             </div>
-                            <div>
-                                <img src={group82} alt="Figma" />
-                                <p>Figma</p>
-                            </div>
-                            <div>
+                            <div className="tech-item">
                                 <img src={iconReactNative} alt="React Native" />
-                                <p>React Native</p>
+                                <span>React Native</span>
+                            </div>
+                            <div className="tech-item">
+                                <img src={group82} alt="Figma" />
+                                <span>Figma</span>
                             </div>
                         </div>
                     </div>
                 </div>
-            </>
-        )
-    }
+            </section>
+        </div>
+    )
+}
 
     export default Skills

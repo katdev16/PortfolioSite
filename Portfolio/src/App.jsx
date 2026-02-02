@@ -17,6 +17,7 @@ import Home from './pages/home.jsx'
 import Skills from './pages/skills.jsx'
 import Projects from './pages/projects.jsx'
 import ParticlesJS from './components/particles.jsx'
+import PageTransition from './components/PageTransition.jsx'
 
 
 function App()  {
@@ -25,12 +26,14 @@ function App()  {
         <BrowserRouter>
             <Headersection />   
             <ParticlesJS />
-            <Routes>
-                <Route path='/' element={<Home />} />
-                <Route path='/about' element={<About />} />
-                <Route path='/skills' element={<Skills />} />
-                <Route path='/projects' element={<Projects />} />
-            </Routes>
+            <PageTransition>
+                <Routes>
+                    <Route path='/' element={<Home />} />
+                    <Route path='/about' element={<About />} />
+                    <Route path='/skills' element={<Skills />} />
+                    <Route path='/projects' element={<Projects />} />
+                </Routes>
+            </PageTransition>
             <Footersection />
         </BrowserRouter>
     )

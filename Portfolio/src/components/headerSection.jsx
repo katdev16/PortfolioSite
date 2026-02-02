@@ -1,79 +1,136 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import '../css/stylesheet.css'
-import { Routes, Route, Link, BrowserRouter } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import closeIcon from '../assets/close_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg'
 import menuIcon from '../assets/menu_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg'
-import arrowIcon from '../assets/keyboard_double_arrow_up_24dp_1F1F1F.svg'
-import katImg from '../assets/KAT.jpeg'
-import linkedinImg from '../assets/icons8-linkedin-48.png'
-import githubImg from '../assets/icons8-github-30.png'
-import emailIcon from '../assets/attach_email_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg'
-import { showsidebar } from '../script.js'
-import { closesidebar } from '../script.js'
-export const Headersection = () => {
 
-     const quarterCircleStyle = {
-        position: 'absolute',
-        top: 0,
-        left: 0,
-        width: '200px',
-        height: '200px',
-        backgroundColor: '#f87000',
-        borderTopLeftRadius: '200px',
-        borderTopRightRadius: 0,
-        borderBottomLeftRadius: 0,
-        borderBottomRightRadius: '5000%',
-        zIndex: -1,
+export const Headersection = () => {
+    const [sidebarActive, setSidebarActive] = useState(false)
+    const [isScrolled, setIsScrolled] = useState(false)
+    const location = useLocation()
+
+    // Handle scroll effect
+    useEffect(() => {
+        const handleScroll = () => {
+            const scrollTop = window.scrollY
+            setIsScrolled(scrollTop > 50)
+        }
+
+        window.addEventListener('scroll', handleScroll)
+        return () => window.removeEventListener('scroll', handleScroll)
+    }, [])
+
+    // Handle sidebar toggle
+    const showSidebar = () => {
+        setSidebarActive(true)
     }
 
+    const closeSidebar = () => {
+        setSidebarActive(false)
+    }
 
-  return (
-    <div id="home-root">
-            <div className="quarter-circle" style={quarterCircleStyle} />
+    // Close sidebar when clicking outside or on a link
+    const handleLinkClick = () => {
+        setSidebarActive(false)
+    }
 
-            <div>
+    // Check if link is active
+    const isActiveLink = (path) => {
+        return location.pathname === path
+    }
+
+    return (
+        <div id="home-root" className={isScrolled ? 'scrolled' : ''}>
+            {/* Sidebar for Mobile */}
+            <ul className={`sidebar ${sidebarActive ? 'active' : 'closed'}`}>
+                <li>
+                    <img src={closeIcon} onClick={closeSidebar} alt="close" />
+                </li>
+                <li>
+                    <Link
+                        to="/"
+                        onClick={handleLinkClick}
+                        className={isActiveLink('/') ? 'active' : ''}
+                    >
+                        Home
+                    </Link>
+                </li>
+                <li>
+                    <Link
+                        to="/about"
+                        onClick={handleLinkClick}
+                        className={isActiveLink('/about') ? 'active' : ''}
+                    >
+                        About
+                    </Link>
+                </li>
+                <li>
+                    <Link
+                        to="/skills"
+                        onClick={handleLinkClick}
+                        className={isActiveLink('/skills') ? 'active' : ''}
+                    >
+                        Skills
+                    </Link>
+                </li>
+                <li>
+                    <Link
+                        to="/projects"
+                        onClick={handleLinkClick}
+                        className={isActiveLink('/projects') ? 'active' : ''}
+                    >
+                        Projects
+                    </Link>
+                </li>
+            </ul>
+
+            {/* Desktop Navigation */}
+            <div className="hamburger-menu">
                 <nav>
-                    <ul className="sidebar">
-                        <li>
-                            <img src={closeIcon} onClick={closesidebar} alt="close" />
+                    <ul>
+                        <li className="hideOnMobile">
+                            <Link
+                                to="/"
+                                className={isActiveLink('/') ? 'active' : ''}
+                            >
+                                Home
+                            </Link>
                         </li>
-                        <li>
-                            <Link to="/">Home</Link>
+                        <li className="hideOnMobile">
+                            <Link
+                                to="/about"
+                                className={isActiveLink('/about') ? 'active' : ''}
+                            >
+                                About
+                            </Link>
                         </li>
-                        <li>
-                            <Link to="/about">About</Link>
+                        <li className="hideOnMobile">
+                            <Link
+                                to="/skills"
+                                className={isActiveLink('/skills') ? 'active' : ''}
+                            >
+                                Skills
+                            </Link>
                         </li>
-                        <li>
-                            <Link to="/skills">Skills</Link>
-                        </li>
-                        <li>
-                            <Link to="/projects">Projects</Link>
+                        <li className="hideOnMobile">
+                            <Link
+                                to="/projects"
+                                className={isActiveLink('/projects') ? 'active' : ''}
+                            >
+                                Projects
+                            </Link>
                         </li>
                     </ul>
                 </nav>
-
-                <div className="hamburger-menu">
-                    <nav>
-                        <ul>
-                            <li className="hideOnMobile">
-                                <Link to="/">Home</Link>
-                            </li>
-                            <li className="hideOnMobile">
-                                <Link to="/about">About</Link>
-                            </li>
-                            <li className="hideOnMobile">
-                                <Link to="/skills">Skills</Link>
-                            </li>
-                            <li className="hideOnMobile">
-                                <Link to="/projects">Projects</Link>
-                            </li>
-                      
-                        </ul>
-                    </nav>
-                </div>
-
-                <img src={menuIcon} onClick={showsidebar} className="mobileMenu" alt="Menu Icon" />
             </div>
+
+            {/* Mobile Menu Button */}
+            <img
+                src={menuIcon}
+                onClick={showSidebar}
+                className="mobileMenu"
+                alt="Menu Icon"
+            />
         </div>
-  )
+    )
 }

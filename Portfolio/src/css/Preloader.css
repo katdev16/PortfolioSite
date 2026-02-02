@@ -1,0 +1,137 @@
+/* Preloader Styles */
+
+.preloader-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #ff9900 0%, #ffa602 100%);
+    z-index: 9999;
+    backdrop-filter: blur(10px);
+}
+
+.dark-mode .preloader-container {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+}
+
+.preloader-spinner {
+    position: relative;
+    width: 80px;
+    height: 80px;
+    margin-bottom: 30px;
+}
+
+.spinner-ring {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border: 4px solid rgba(255, 255, 255, 0.1);
+    border-top: 4px solid #f87000;
+    border-radius: 50%;
+    animation: spin 1.5s linear infinite;
+}
+
+.spinner-ring:nth-child(2) {
+    animation-delay: 0.2s;
+    border-top-color: #ff6b35;
+}
+
+.spinner-ring:nth-child(3) {
+    animation-delay: 0.4s;
+    border-top-color: #ff9900;
+}
+
+.spinner-ring:nth-child(4) {
+    animation-delay: 0.6s;
+    border-top-color: #764ba2;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.preloader-text {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1.2rem;
+    font-weight: 600;
+    text-align: center;
+    letter-spacing: 1px;
+}
+
+.dots {
+    display: inline-block;
+    margin-left: 5px;
+}
+
+.dots span {
+    animation: dots 1.5s infinite;
+}
+
+.dots span:nth-child(1) { animation-delay: 0s; }
+.dots span:nth-child(2) { animation-delay: 0.2s; }
+.dots span:nth-child(3) { animation-delay: 0.4s; }
+
+@keyframes dots {
+    0%, 80%, 100% {
+        opacity: 0;
+        transform: translateY(0);
+    }
+    40% {
+        opacity: 1;
+        transform: translateY(-10px);
+    }
+}
+
+/* Content wrapper for smooth reveal */
+.content-wrapper {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.content-wrapper.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+    .preloader-container {
+        padding: 20px;
+    }
+
+    .preloader-spinner {
+        width: 60px;
+        height: 60px;
+        margin-bottom: 20px;
+    }
+
+    .spinner-ring {
+        border-width: 3px;
+    }
+
+    .preloader-text {
+        font-size: 1rem;
+    }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+    .spinner-ring,
+    .dots span,
+    .content-wrapper {
+        animation: none;
+        transition: none;
+    }
+
+    .content-wrapper.visible {
+        opacity: 1;
+        transform: none;
+    }
+}

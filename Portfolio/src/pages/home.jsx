@@ -11,7 +11,16 @@ const useTypewriter = (texts, speed = 100) => {
   const [index, setIndex] = useState(0)
   const [isDeleting, setIsDeleting] = useState(false)
   const [textIndex, setTextIndex] = useState(0)
+  const [showCursor, setShowCursor] = useState(true)
   const currentText = texts[textIndex]
+
+  useEffect(() => {
+    const cursorInterval = setInterval(() => {
+      setShowCursor(prev => !prev)
+    }, 500)
+
+    return () => clearInterval(cursorInterval)
+  }, [])
 
   useEffect(() => {
     const timeout = setTimeout(() => {
@@ -35,7 +44,7 @@ const useTypewriter = (texts, speed = 100) => {
     return () => clearTimeout(timeout)
   }, [index, displayedText, currentText, speed, isDeleting, texts, textIndex])
 
-  return displayedText
+  return displayedText + (showCursor ? '_' : '_')
 }
 
 
@@ -65,31 +74,74 @@ const Home = () => {
 
     
     return (
-        <div className="container">
-            <div className="details">
-                <h2>I'm</h2>
-                <h1>Katlego</h1>
-                <h1>Dhlamini</h1>
-                <button onClick={handleDownload}>Resume</button>;
-                <div className="logo">
-                    <a href="https://www.linkedin.com/in/katlego-dhlamini-932636284/" target="_blank" rel="noopener noreferrer">
-                        <img src={linkedinImg} alt="LinkedIn" className="responsive-image" />
-                    </a>
-                    <a href="https://github.com/katdev16" target="_blank" rel="noopener noreferrer">
-                        <img src={githubImg} alt="GitHub" className="responsive-image" />
-                    </a>
-                    <a href="mailto:katlegodhlamini2003@gmail.com">
-                        <img src={emailIcon} alt="Email" className="responsive-image" />
-                    </a>
+        <div className="home-container">
+            {/* Hero Section */}
+            <section className="hero-section">
+                <div className="hero-content">
+                    <div className="hero-text">
+                        <h1 className="greeting">Hello, I'm</h1>
+                        <div className="name-section">
+                            <h2 className="first-name">Katlego</h2>
+                            <h2 className="last-name">Dhlamini</h2>
+                        </div>
+                        <div className="role-display">
+                            <span className="role-text">{displayedText}</span>
+                        </div>
+                        <p className="hero-description">
+                            Passionate about creating exceptional digital experiences through
+                            innovative design and cutting-edge development.
+                        </p>
+
+                        <div className="hero-actions">
+                            <button className="primary-btn" onClick={handleDownload}>
+                                Download Resume
+                            </button>
+                            <a href="about" className="secondary-btn">
+                                Learn More
+                            </a>
+                        </div>
+
+                        <div className="social-links">
+                            <a href="https://www.linkedin.com/in/katlego-dhlamini-932636284/"
+                               target="_blank"
+                               rel="noopener noreferrer"
+                               className="social-link linkedin">
+                                <img src={linkedinImg} alt="LinkedIn" />
+                            </a>
+                            <a href="https://github.com/katdev16"
+                               target="_blank"
+                               rel="noopener noreferrer"
+                               className="social-link github">
+                                <img src={githubImg} alt="GitHub" />
+                            </a>
+                            <a href="mailto:katlegodhlamini2003@gmail.com"
+                               className="social-link email">
+                                <img src={emailIcon} alt="Email" />
+                            </a>
+                        </div>
+                    </div>
+
+                    <div className="hero-image">
+                        <div className="image-container">
+                            <img src={katImg} alt="Katlego Dhlamini" />
+                            <div className="image-overlay"></div>
+                        </div>
+                        <div className="floating-elements">
+                            <div className="floating-circle circle-1"></div>
+                            <div className="floating-circle circle-2"></div>
+                            <div className="floating-circle circle-3"></div>
+                        </div>
+                    </div>
                 </div>
-            </div>
 
-            <div className="circle-image">
-                <img src={katImg} alt="Circular Image" />
-                <h1>{displayedText}</h1>
-            </div>
-
-            <div className="role"></div>
+                {/* Scroll Indicator */}
+                <div className="scroll-indicator">
+                    <div className="scroll-mouse">
+                        <div className="scroll-wheel"></div>
+                    </div>
+                    <span>Scroll Down</span>
+                </div>
+            </section>
         </div>
     )
 }
