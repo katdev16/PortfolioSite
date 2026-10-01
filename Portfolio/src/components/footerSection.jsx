@@ -32,7 +32,7 @@ export const Footersection = () => {
                         <div className="footer-content">
                             <h1>Lets connect there</h1>
                             <a href="mailto:katlegodhlamini2003@gmail.com">
-                            <button className="HireMe">Hire me</button>
+                            <button className="HireMe">Let's work</button>
                             </a>
                         </div>
 
@@ -67,7 +67,7 @@ export const Footersection = () => {
                                 <div>
                                     <h2>Contact Info</h2>
                                     <p>Katlegodhlamini2003@gmail.com</p>
-                                    <p>0738078339</p>
+                                    <p>0728078429</p>
                                     <p>Johannesburg, South Africa</p>
                                 </div>
                             </div>
