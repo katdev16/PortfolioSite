@@ -1,6 +1,7 @@
 
     import React, { useState } from 'react'
 import '../css/Project_new.css'
+import UnderConstruction from '../components/UnderConstruction.jsx'
 
 // Placeholder project data
 const projectData = [
@@ -115,7 +116,9 @@ const Projects = () => {
     ]
 
     return (
-        <div className="projects-container">
+        <>
+            <UnderConstruction pageName="Projects" />
+            <div className="projects-container page-content--under-construction" aria-hidden="true">
             <div className="projects-header">
                 <h1 className="projects-title">My Projects</h1>
                 <p className="projects-subtitle">
@@ -191,7 +194,8 @@ const Projects = () => {
                     <p>Try selecting a different filter to see more projects.</p>
                 </div>
             )}
-        </div>
+            </div>
+        </>
     )
 }
 

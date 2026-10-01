@@ -8,6 +8,7 @@ import workIcon from '../assets/work_history_24dp_1F1F1F_FILL0_wght400_GRAD0_ops
 import growthIcon from '../assets/trending_up_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg'
 import '../css/AboutStylesheet_new.css'
 import { TopFunction } from '../script'
+import UnderConstruction from '../components/UnderConstruction.jsx'
 
 
 export const About = () => {
@@ -18,6 +19,10 @@ export const About = () => {
     }
 
     return (
+        <>  
+        <UnderConstruction pageName="About" />
+        <div className="skills-container page-content--under-construction" aria-hidden="true">
+        
         <div className='about-container'>
             {/* About Me Section */}
             <section className='about-hero'>
@@ -119,6 +124,9 @@ export const About = () => {
                 <img src={arrowIcon} alt="scroll to top" />
             </button>
         </div>
+        </div>
+        
+        </>
     )
 }
 export default About

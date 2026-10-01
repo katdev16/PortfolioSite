@@ -41,6 +41,7 @@ export const Headersection = () => {
 
     return (
         <div id="home-root" className={isScrolled ? 'scrolled' : ''}>
+            <div className="quarter-circle"></div>
             {/* Sidebar for Mobile */}
             <ul className={`sidebar ${sidebarActive ? 'active' : 'closed'}`}>
                 <li>
@@ -86,6 +87,7 @@ export const Headersection = () => {
 
             {/* Desktop Navigation */}
             <div className="hamburger-menu">
+                <div className="quarter-circle"></div>
                 <nav>
                     <ul>
                         <li className="hideOnMobile">

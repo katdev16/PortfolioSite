@@ -88,14 +88,19 @@ const Home = () => {
                             <span className="role-text">{displayedText}</span>
                         </div>
                         <p className="hero-description">
-                            Passionate about creating exceptional digital experiences through
-                            innovative design and cutting-edge development.
+                            Passionate about delivering innovative software solutions and professional technology services that help businesses streamline operations, solve complex challenges, and create exceptional digital experiences. Combining cutting-edge development with thoughtful design, we build reliable, scalable, and user-focused solutions tailored to your unique needs.
                         </p>
 
                         <div className="hero-actions">
-                            <button className="primary-btn" onClick={handleDownload}>
-                                Download Resume
+                            <button className="primary-btn" >
+                                Let's work
                             </button>
+                            
+                            {/* <button className="primary-btn" onClick={handleDownload}>
+                                Download Resume
+                            </button> */}
+                            
+
                             <a href="about" className="secondary-btn">
                                 Learn More
                             </a>

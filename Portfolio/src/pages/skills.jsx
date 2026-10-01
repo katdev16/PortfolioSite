@@ -9,10 +9,13 @@
     import group82 from '../assets/Group 82.svg'
     import iconReactNative from '../assets/icon.png'
     import '../css/Skills.css'
+import UnderConstruction from '../components/UnderConstruction.jsx'
 
 const Skills = () => {
     return (
-        <div className="skills-container">
+        <>
+            <UnderConstruction pageName="Skills" />
+            <div className="skills-container page-content--under-construction" aria-hidden="true">
             {/* Hero Section */}
             <section className="skills-hero">
                 <div className="hero-content">
@@ -90,7 +93,8 @@ const Skills = () => {
                     </div>
                 </div>
             </section>
-        </div>
+            </div>
+        </>
     )
 }
 
