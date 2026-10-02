@@ -51,12 +51,12 @@ export const Footersection = () => {
                                 </p>
                                 <div className="logo2">
 
-                                    <a href="https://www.linkedin.com/in/katlego-dhlamini-932636284/" target="_blank" rel="noopener noreferrer">
+                                    {/* <a href="https://www.linkedin.com/in/katlego-dhlamini-932636284/" target="_blank" rel="noopener noreferrer">
                                         <img src={linkedinImg} alt="LinkedIn" className="responsive-image" />
                                     </a>
                                     <a href="https://github.com/katdev16" target="_blank" rel="noopener noreferrer">
                                         <img src={githubImg} alt="GitHub" className="responsive-image" />
-                                    </a>
+                                    </a> */}
                                     <a href="mailto:katlegodhlamini2003@gmail.com">
                                         <img src={emailIcon} alt="Email" className="responsive-image" />
                                     </a>
