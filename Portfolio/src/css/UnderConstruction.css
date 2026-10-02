@@ -290,7 +290,7 @@
 }
 
 .page-content--under-construction {
-    display: none;
+    display: block;
 }
 
 @keyframes development-spin {

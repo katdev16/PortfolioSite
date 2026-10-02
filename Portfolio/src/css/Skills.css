@@ -286,11 +286,11 @@
     }
 
     .hero-content{
-        /* margin-top: 100px; */
+        margin-top: 160px;
     }
 
     .skills-container{
-        margin-top: 150px;
+        /* margin-top: 150px; */
     }
     .skills-hero{
         margin-top: 400px;
@@ -365,6 +365,7 @@
 @media (max-width: 480px) {
     .skills-hero {
         padding: 40px 0;
+       
     }
 
     .skills-title {

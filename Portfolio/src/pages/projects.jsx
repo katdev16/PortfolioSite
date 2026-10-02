@@ -117,7 +117,7 @@ const Projects = () => {
 
     return (
         <>
-            <UnderConstruction pageName="Projects" />
+            {/* <UnderConstruction pageName="Projects" /> */}
             <div className="projects-container page-content--under-construction" aria-hidden="true">
             <div className="projects-header">
                 <h1 className="projects-title">My Projects</h1>

@@ -14,7 +14,7 @@ import UnderConstruction from '../components/UnderConstruction.jsx'
 const Skills = () => {
     return (
         <>
-            <UnderConstruction pageName="Skills" />
+            {/* <UnderConstruction pageName="Skills" /> */}
             <div className="skills-container page-content--under-construction" aria-hidden="true">
             {/* Hero Section */}
             <section className="skills-hero">

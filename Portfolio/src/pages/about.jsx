@@ -20,8 +20,8 @@ export const About = () => {
 
     return (
         <>  
-        <UnderConstruction pageName="About" />
-        <div className="skills-container page-content--under-construction" aria-hidden="true">
+        {/* <UnderConstruction pageName="About" /> */}
+        {/* <div className="skills-container page-content--under-construction" aria-hidden="true"> */}
         
         <div className='about-container'>
             {/* About Me Section */}
@@ -124,8 +124,7 @@ export const About = () => {
                 <img src={arrowIcon} alt="scroll to top" />
             </button>
         </div>
-        </div>
-        
+      
         </>
     )
 }

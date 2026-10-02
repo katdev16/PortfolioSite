@@ -297,7 +297,7 @@
 @media (max-width: 768px) {
     .projects-container {
         padding: 100px 15px 60px;
-        margin-top: 150px;
+        /* margin-top: 150px; */
     }
 
     .projects-title {
@@ -324,6 +324,7 @@
 
     .project-content {
         padding: 20px;
+        /* padding-top: 150px; */
     }
 
     .project-title {
@@ -331,9 +332,10 @@
     }
 }
 
+/* small phone */
 @media (max-width: 480px) {
     .projects-container {
-        padding: 80px 10px 40px;
+        padding: 160px 10px 40px;
     }
 
     .projects-title {

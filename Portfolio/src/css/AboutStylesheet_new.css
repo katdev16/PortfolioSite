@@ -25,6 +25,7 @@
     /* background: linear-gradient(135deg, #faf9f57e 0%, #ffb0062c 100%); */
     margin: -20px -20px 60px -20px;
     border-radius: 0 0 50px 50px;
+    /* background: linear-gradient(135deg, #ff8902 0%, #00000077 100%); */
 }
 
 .about-content {
@@ -313,7 +314,7 @@
     }
 
     .about-container{
-        margin-top: 100px;
+        /* margin-top: 100px; */
     }
 
     .about-text h1 {
@@ -326,6 +327,8 @@
     }
 }
 
+
+/* small screen */
 @media (max-width: 768px) {
     .about-container {
         padding: 0 15px;
@@ -340,6 +343,7 @@
         grid-template-columns: 1fr;
         gap: 40px;
         text-align: center;
+        padding-top: 160px;
     }
 
     .about-text h1 {
