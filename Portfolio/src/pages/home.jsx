@@ -1,10 +1,14 @@
-import { Routes, Route, Link, BrowserRouter } from 'react-router-dom';
-
-import React, { useState, useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import katImg from '../assets/KAT.jpeg'
 import linkedinImg from '../assets/icons8-linkedin-48.png'
+
+import InstagramLogo from "../assets/instagram.png"
 import githubImg from '../assets/icons8-github-30.png'
 import emailIcon from '../assets/attach_email_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg'
+import About from './about.jsx'
+import Skills from './skills.jsx'
+
+const roleTitles = ['UI/UX Designer', 'Developer']
 
 const useTypewriter = (texts, speed = 100) => {
   const [displayedText, setDisplayedText] = useState('')
@@ -44,42 +48,22 @@ const useTypewriter = (texts, speed = 100) => {
     return () => clearTimeout(timeout)
   }, [index, displayedText, currentText, speed, isDeleting, texts, textIndex])
 
-  return displayedText + (showCursor ? '_' : '_')
+  return displayedText + (showCursor ? '|' : '')
 }
 
 
 
 
 const Home = () => {
-    const displayedText = useTypewriter([
-      'UI/UX Designer',
-      'Developer'
-    ], 100)
+    const displayedText = useTypewriter(roleTitles, 100)
 
-
-
-        
-    const handleDownload = () => {
-        const link = document.createElement('a');
-        link.href = '/docs/KatlegoDhlaminiResume.pdf'; // path to your PDF file
-        link.download = 'KatlegoDhlaminiResume.pdf'; // suggested filename
-        document.body.appendChild(link);
-        link.click();
-        link.remove();
-    };
-
-   
-    
-
-
-    
     return (
-        <div className="home-container">
-            {/* Hero Section */}
-            <section className="hero-section">
-                <div className="hero-content">
+        <main className="single-page">
+            <div className="home-container">
+                <section className="hero-section" id="home" aria-labelledby="home-heading">
+                    <div className="hero-content">
                     <div className="hero-text">
-                        <h1 className="greeting">Hello, I'm</h1>
+                        <h1 className="greeting" id="home-heading">Hello, I'm</h1>
                         <div className="name-section">
                             <h2 className="first-name">Katlego</h2>
                             <h2 className="last-name">Dhlamini</h2>
@@ -92,26 +76,20 @@ const Home = () => {
                         </p>
 
                         <div className="hero-actions">
-                            <button className="primary-btn" >
-                                Let's work
-                            </button>
-                            
-                            {/* <button className="primary-btn" onClick={handleDownload}>
-                                Download Resume
-                            </button> */}
-                            
-
-                            <a href="about" className="secondary-btn">
-                                Learn More
+                            <a className="primary-btn" href="mailto:katlegodhlamini2003@gmail.com">
+                                Let’s work
+                            </a>
+                            <a href="#about" className="secondary-btn">
+                                Learn more
                             </a>
                         </div>
 
                         <div className="social-links">
-                            <a href="https://www.linkedin.com/in/katlego-dhlamini-932636284/"
+                            <a href="https://www.instagram.com/katlegodev_/"
                                target="_blank"
                                rel="noopener noreferrer"
                                className="social-link linkedin">
-                                <img src={linkedinImg} alt="LinkedIn" />
+                                <img src={InstagramLogo} alt="Instagram" />
                             </a>
                             <a href="https://github.com/katdev16"
                                target="_blank"
@@ -137,17 +115,19 @@ const Home = () => {
                             <div className="floating-circle circle-3"></div>
                         </div>
                     </div>
-                </div>
-
-                {/* Scroll Indicator */}
-                <div className="scroll-indicator">
-                    <div className="scroll-mouse">
-                        <div className="scroll-wheel"></div>
                     </div>
-                    <span>Scroll Down</span>
-                </div>
-            </section>
-        </div>
+
+                    <div className="scroll-indicator" aria-hidden="true">
+                        <div className="scroll-mouse">
+                            <div className="scroll-wheel"></div>
+                        </div>
+                        <span>Scroll to explore</span>
+                    </div>
+                </section>
+            </div>
+            <About />
+            <Skills />
+        </main>
     )
 }
 

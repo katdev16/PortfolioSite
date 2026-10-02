@@ -1,138 +1,68 @@
-import React, { useState, useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import '../css/stylesheet.css'
-import { Link, useLocation } from 'react-router-dom';
-import closeIcon from '../assets/close_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg'
-import menuIcon from '../assets/menu_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg'
+
+const pageSections = [
+    { id: 'home', label: 'Introduction' },
+    { id: 'about', label: 'About' },
+    { id: 'skills', label: 'Services & skills' },
+]
 
 export const Headersection = () => {
-    const [sidebarActive, setSidebarActive] = useState(false)
-    const [isScrolled, setIsScrolled] = useState(false)
-    const location = useLocation()
+    const [pageProgress, setPageProgress] = useState(0)
+    const [activeSection, setActiveSection] = useState(pageSections[0])
 
-    // Handle scroll effect
     useEffect(() => {
-        const handleScroll = () => {
-            const scrollTop = window.scrollY
-            setIsScrolled(scrollTop > 50)
+        const updateProgress = () => {
+            const scrollableHeight = document.documentElement.scrollHeight - window.innerHeight
+            const progress = scrollableHeight > 0 ? (window.scrollY / scrollableHeight) * 100 : 0
+            const currentPosition = window.scrollY + window.innerHeight * 0.35
+
+            setPageProgress(Math.min(100, Math.max(0, progress)))
+
+            const currentSection = [...pageSections].reverse().find(({ id }) => {
+                const section = document.getElementById(id)
+                return section && section.offsetTop <= currentPosition
+            })
+
+            if (currentSection) {
+                setActiveSection(currentSection)
+            }
         }
 
-        window.addEventListener('scroll', handleScroll)
-        return () => window.removeEventListener('scroll', handleScroll)
+        updateProgress()
+        window.addEventListener('scroll', updateProgress, { passive: true })
+        window.addEventListener('resize', updateProgress)
+
+        return () => {
+            window.removeEventListener('scroll', updateProgress)
+            window.removeEventListener('resize', updateProgress)
+        }
     }, [])
 
-    // Handle sidebar toggle
-    const showSidebar = () => {
-        setSidebarActive(true)
-    }
-
-    const closeSidebar = () => {
-        setSidebarActive(false)
-    }
-
-    // Close sidebar when clicking outside or on a link
-    const handleLinkClick = () => {
-        setSidebarActive(false)
-    }
-
-    // Check if link is active
-    const isActiveLink = (path) => {
-        return location.pathname === path
-    }
-
     return (
-        <div id="home-root" className={isScrolled ? 'scrolled' : ''}>
-            <div className="quarter-circle"></div>
-            {/* Sidebar for Mobile */}
-            <ul className={`sidebar ${sidebarActive ? 'active' : 'closed'}`}>
-                <li>
-                    <img src={closeIcon} onClick={closeSidebar} alt="close" />
-                </li>
-                <li>
-                    <Link
-                        to="/"
-                        onClick={handleLinkClick}
-                        className={isActiveLink('/') ? 'active' : ''}
-                    >
-                        Home
-                    </Link>
-                </li>
-                <li>
-                    <Link
-                        to="/about"
-                        onClick={handleLinkClick}
-                        className={isActiveLink('/about') ? 'active' : ''}
-                    >
-                        About
-                    </Link>
-                </li>
-                <li>
-                    <Link
-                        to="/skills"
-                        onClick={handleLinkClick}
-                        className={isActiveLink('/skills') ? 'active' : ''}
-                    >
-                        Skills
-                    </Link>
-                </li>
-                <li>
-                    <Link
-                        to="/projects"
-                        onClick={handleLinkClick}
-                        className={isActiveLink('/projects') ? 'active' : ''}
-                    >
-                        Projects
-                    </Link>
-                </li>
-            </ul>
-
-            {/* Desktop Navigation */}
-            <div className="hamburger-menu">
-                <div className="quarter-circle"></div>
-                <nav>
-                    <ul>
-                        <li className="hideOnMobile">
-                            <Link
-                                to="/"
-                                className={isActiveLink('/') ? 'active' : ''}
-                            >
-                                Home
-                            </Link>
-                        </li>
-                        <li className="hideOnMobile">
-                            <Link
-                                to="/about"
-                                className={isActiveLink('/about') ? 'active' : ''}
-                            >
-                                About
-                            </Link>
-                        </li>
-                        <li className="hideOnMobile">
-                            <Link
-                                to="/skills"
-                                className={isActiveLink('/skills') ? 'active' : ''}
-                            >
-                                Skills
-                            </Link>
-                        </li>
-                        <li className="hideOnMobile">
-                            <Link
-                                to="/projects"
-                                className={isActiveLink('/projects') ? 'active' : ''}
-                            >
-                                Projects
-                            </Link>
-                        </li>
-                    </ul>
-                </nav>
+        <header className="site-header">
+            {/* <div className="quarter-circle" aria-hidden="true" /> */}
+            <div className="site-banner">
+                <div className="site-banner__brand">
+                    <span className="site-banner__monogram" aria-hidden="true">KD</span>
+                    <span>
+                        <strong>Katlego Dhlamini</strong>
+                        <small>Digital design &amp; development</small>
+                    </span>
+                </div>
+                <div className="site-banner__services">
+                    <span>Websites</span>
+                    <span>Apps</span>
+                    <span>Software solutions</span>
+                </div>
+                <p className="site-banner__chapter">
+                    <span>{String(pageSections.indexOf(activeSection) + 1).padStart(2, '0')}</span>
+                    {activeSection.label}
+                </p>
             </div>
-
-            {/* Mobile Menu Button */}
-            <img
-                src={menuIcon}
-                onClick={showSidebar}
-                className="mobileMenu"
-                alt="Menu Icon"
-            />
-        </div>
+            <div className="page-progress" role="progressbar" aria-label="Page reading progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow={Math.round(pageProgress)}>
+                <span style={{ transform: `scaleX(${pageProgress / 100})` }} />
+            </div>
+        </header>
     )
 }

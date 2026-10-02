@@ -1,85 +1,80 @@
-import React from 'react'
-import '../css/stylesheet.css'
-
-import closeIcon from '../assets/close_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg'
-import menuIcon from '../assets/menu_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg'
-import arrowIcon from '../assets/keyboard_double_arrow_up_24dp_1F1F1F.svg'
+import { useState } from 'react'
 import katImg from '../assets/KAT.jpeg'
 import linkedinImg from '../assets/icons8-linkedin-48.png'
+import InstagramLogo from "../assets/instagram.png"
 import githubImg from '../assets/icons8-github-30.png'
-import emailIcon from '../assets/attach_email_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg'
-import { useState } from 'react'
+import '../css/stylesheet.css'
 
 export const Footersection = () => {
     const [footerOpen, setFooterOpen] = useState(false)
 
-    const toggleFooter = () => {
-                setFooterOpen((v) => !v)
-        }
-
-
-  return (
-    <div className={`rectangle ${footerOpen ? 'open' : ''}`} id="footer">
-                <img
-                    src={arrowIcon}
-                    className={`arrowup ${footerOpen ? 'rotated' : ''}`}
-                    onClick={toggleFooter}
-                    alt="toggle footer"
-                />
-
-                {footerOpen && (
-                    <div id="footerText">
-                        <div className="footer-content">
-                            <h1>Lets connect there</h1>
-                            <a href="mailto:katlegodhlamini2003@gmail.com">
-                            <button className="HireMe">Let's work</button>
-                            </a>
+    return (
+        <footer className={`portfolio-footer${footerOpen ? ' portfolio-footer--open' : ''}`}>
+            <div className="portfolio-footer__inner">
+                <div
+                    className="portfolio-footer__panel"
+                    id="portfolio-footer-panel"
+                    aria-hidden={!footerOpen}
+                >
+                    <section className="portfolio-footer__cta" aria-labelledby="footer-cta-heading">
+                        <div>
+                            <p className="portfolio-footer__eyebrow">Have a project in mind?</p>
+                            <h2 id="footer-cta-heading">Let’s build something useful for your business.</h2>
                         </div>
+                        <a className="portfolio-footer__contact-button" href="mailto:katlegodhlamini2003@gmail.com" tabIndex={footerOpen ? 0 : -1}>
+                            Start a conversation
+                            <span aria-hidden="true">↗</span>
+                        </a>
+                    </section>
 
-                        <hr style={{ width: '85%', marginLeft: 'auto', marginRight: 'auto' }} />
-
-                        <div className="footer-content-02">
-                            <div className="footer-details">
-                                <div className="circle-image-footer">
-                                    <img src={katImg} alt="Circular Image" />
-                                    <h2>Katlego Dhlamini</h2>
-                                </div>
-                                <p>
-                                    Below is my socal links where we
-                                    <br /> can connect for any project
-                                    <br /> contribution or colabration
-                                </p>
-                                <div className="logo2">
-
-                                    {/* <a href="https://www.linkedin.com/in/katlego-dhlamini-932636284/" target="_blank" rel="noopener noreferrer">
-                                        <img src={linkedinImg} alt="LinkedIn" className="responsive-image" />
-                                    </a>
-                                    <a href="https://github.com/katdev16" target="_blank" rel="noopener noreferrer">
-                                        <img src={githubImg} alt="GitHub" className="responsive-image" />
-                                    </a> */}
-                                    <a href="mailto:katlegodhlamini2003@gmail.com">
-                                        <img src={emailIcon} alt="Email" className="responsive-image" />
-                                    </a>
-                                </div>
-                            </div>
-
-                            <div className="footer-details-03">
+                    <div className="portfolio-footer__details">
+                        <section className="portfolio-footer__profile" aria-label="About Katlego">
+                            <div className="portfolio-footer__identity">
+                                <img src={katImg} alt="" />
                                 <div>
-                                    <h2>Contact Info</h2>
-                                    <p>Katlegodhlamini2003@gmail.com</p>
-                                    <p>0728078429</p>
-                                    <p>Johannesburg, South Africa</p>
+                                    <h3>Katlego Dhlamini</h3>
+                                    <p>UI/UX designer &amp; developer</p>
                                 </div>
                             </div>
-                        </div>
+                            <p className="portfolio-footer__bio">
+                                Thoughtful design and practical technology for better digital experiences.
+                            </p>
+                            <nav className="portfolio-footer__socials" aria-label="Social links">
+                                <a href="https://www.instagram.com/katlegodev_/" tabIndex={footerOpen ? 0 : -1}>
+                                    <img src={InstagramLogo} alt="" />
+                                    <span>Instagram</span>
+                                </a>
+                                <a href="https://github.com/katdev16" target="_blank" rel="noopener noreferrer" tabIndex={footerOpen ? 0 : -1}>
+                                    <img src={githubImg} alt="" />
+                                    <span>GitHub</span>
+                                </a>
+                            </nav>
+                        </section>
 
-                        <hr style={{ width: '85%', marginLeft: 'auto', marginRight: 'auto' }} />
-                        <p className="footertext" style={{ paddingLeft: 0 }}>
-                            Copyright © 2025 Katlego Dhlamini. All Rights Reserved.
-                        </p>
+                        <section className="portfolio-footer__contact" aria-labelledby="footer-contact-heading">
+                            <h3 id="footer-contact-heading">Get in touch</h3>
+                            <a href="mailto:katlegodhlamini2003@gmail.com" tabIndex={footerOpen ? 0 : -1}>katlegodhlamini2003@gmail.com</a>
+                            <p>Johannesburg, South Africa</p>
+                        </section>
                     </div>
-                )}
+
+                    <div className="portfolio-footer__bottom">
+                        <p>© {new Date().getFullYear()} Katlego Dhlamini</p>
+                        <p>Designed with purpose.</p>
+                    </div>
+                </div>
+
+                <button
+                    className="portfolio-footer__toggle"
+                    type="button"
+                    aria-expanded={footerOpen}
+                    aria-controls="portfolio-footer-panel"
+                    onClick={() => setFooterOpen((open) => !open)}
+                >
+                    <span>{footerOpen ? 'Close' : 'Let’s connect'}</span>
+                    <span className="portfolio-footer__toggle-icon" aria-hidden="true">⌃</span>
+                </button>
             </div>
-        
-  )
+        </footer>
+    )
 }
