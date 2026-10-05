@@ -40,7 +40,7 @@ The floating WhatsApp button opens a new chat to the portfolio owner's number us
 
 ## Light and dark mode
 
-Use the **Dark mode** / **Light mode** button in the top banner to switch themes. The selection is saved in browser `localStorage` under `portfolio-theme`, so it is kept after reloading the page. The default theme is light.
+Use the **Dark mode** / **Light mode** button in the top banner to switch themes. The selection is saved in browser `localStorage` under `portfolio-theme-v2`, so it is kept after reloading the page. The default theme is light. Previous saved theme preferences are not carried over, so visitors see light mode on their first visit after this update.
 
 The app applies the `dark-mode` class to the document root. Theme styles are in:
 

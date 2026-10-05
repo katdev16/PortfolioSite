@@ -7,10 +7,11 @@ import WhatsAppButton from './components/WhatsAppButton.jsx'
 import Home from './pages/home.jsx'
 import ParticlesJS from './components/particles.jsx'
 
+const THEME_STORAGE_KEY = 'portfolio-theme-v2'
 
 function App() {
     const [theme, setTheme] = useState(() => (
-        localStorage.getItem('portfolio-theme') === 'dark' ? 'dark' : 'light'
+        localStorage.getItem(THEME_STORAGE_KEY) === 'dark' ? 'dark' : 'light'
     ))
 
     useEffect(() => {
@@ -20,7 +21,7 @@ function App() {
 
     const toggleTheme = () => {
         const nextTheme = theme === 'dark' ? 'light' : 'dark'
-        localStorage.setItem('portfolio-theme', nextTheme)
+        localStorage.setItem(THEME_STORAGE_KEY, nextTheme)
         setTheme(nextTheme)
     }
 
