@@ -1,6 +1,5 @@
 import { useState } from 'react'
 import katImg from '../assets/KAT.jpeg'
-import linkedinImg from '../assets/icons8-linkedin-48.png'
 import InstagramLogo from "../assets/instagram.png"
 import githubImg from '../assets/icons8-github-30.png'
 import '../css/stylesheet.css'

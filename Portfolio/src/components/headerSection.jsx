@@ -7,7 +7,7 @@ const pageSections = [
     { id: 'skills', label: 'Services & skills' },
 ]
 
-export const Headersection = () => {
+export const Headersection = ({ theme, onToggleTheme }) => {
     const [pageProgress, setPageProgress] = useState(0)
     const [activeSection, setActiveSection] = useState(pageSections[0])
 
@@ -59,6 +59,18 @@ export const Headersection = () => {
                     <span>{String(pageSections.indexOf(activeSection) + 1).padStart(2, '0')}</span>
                     {activeSection.label}
                 </p>
+                <button
+                    className="theme-toggle"
+                    type="button"
+                    aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}
+                    aria-pressed={theme === 'dark'}
+                    onClick={onToggleTheme}
+                >
+                    <span className="theme-toggle__icon" aria-hidden="true">
+                        {theme === 'dark' ? '☀' : '☾'}
+                    </span>
+                    <span>{theme === 'dark' ? 'Light' : 'Dark'} mode</span>
+                </button>
             </div>
             <div className="page-progress" role="progressbar" aria-label="Page reading progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow={Math.round(pageProgress)}>
                 <span style={{ transform: `scaleX(${pageProgress / 100})` }} />

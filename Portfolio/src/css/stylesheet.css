@@ -126,6 +126,42 @@ body {
     letter-spacing: 0.08em;
 }
 
+.theme-toggle {
+    min-height: 38px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 auto;
+    gap: 8px;
+    padding: 0 12px;
+    border: 1px solid rgba(32, 41, 54, 0.13);
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.76);
+    color: #202936;
+    cursor: pointer;
+    font: inherit;
+    font-size: 0.74rem;
+    font-weight: 650;
+    transition: background-color 180ms ease, border-color 180ms ease, transform 180ms ease;
+}
+
+.theme-toggle:hover {
+    transform: translateY(-1px);
+    border-color: rgba(248, 112, 0, 0.45);
+    background: #fff;
+}
+
+.theme-toggle:focus-visible {
+    outline: 3px solid #f87000;
+    outline-offset: 3px;
+}
+
+.theme-toggle__icon {
+    color: #d95d00;
+    font-size: 1.05rem;
+    line-height: 1;
+}
+
 .page-progress {
     position: fixed;
     z-index: 1100;
@@ -162,6 +198,16 @@ body {
     color: #c0c8d3;
 }
 
+.dark-mode .theme-toggle {
+    border-color: rgba(255, 255, 255, 0.18);
+    background: rgba(255, 255, 255, 0.08);
+    color: #f1f3f6;
+}
+
+.dark-mode .theme-toggle:hover {
+    background: rgba(255, 255, 255, 0.14);
+}
+
 @media (max-width: 800px) {
     .site-header {
         min-height: 178px;
@@ -188,6 +234,11 @@ body {
 
     .site-banner__chapter {
         display: none;
+    }
+
+    .theme-toggle {
+        min-height: 35px;
+        padding: 0 10px;
     }
 }
 
@@ -220,6 +271,10 @@ body {
         flex-basis: 100%;
         padding-left: 45px;
         font-size: 0.64rem;
+    }
+
+    .theme-toggle {
+        margin-left: auto;
     }
 }
 
@@ -348,6 +403,7 @@ body {
 }
 
 .dark-mode .hero-description {
+    color: #f1f3f6;
     border-color: rgba(255, 255, 255, 0.2);
     background:
         linear-gradient(135deg, rgba(255, 255, 255, 0.16), rgba(255, 255, 255, 0.06));
@@ -853,6 +909,67 @@ text-decoration: none;
 color: rgb(0, 0, 0);
 text-decoration: none;
 font-size: 20px;
+}
+
+.whatsapp-float {
+    position: fixed;
+    z-index: 1001;
+    right: 24px;
+    bottom: 72px;
+    min-width: 58px;
+    height: 58px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 0 17px;
+    border: 1px solid rgba(255, 255, 255, 0.38);
+    border-radius: 999px;
+    background: #20b95b;
+    box-shadow: 0 9px 24px rgba(16, 122, 61, 0.32);
+    color: #fff;
+    font-size: 0.82rem;
+    font-weight: 700;
+    text-decoration: none;
+    transition: transform 180ms ease, background-color 180ms ease, box-shadow 180ms ease;
+}
+
+.whatsapp-float:hover {
+    transform: translateY(-3px);
+    background: #159447;
+    box-shadow: 0 13px 28px rgba(16, 122, 61, 0.4);
+}
+
+.whatsapp-float:focus-visible {
+    outline: 3px solid #f87000;
+    outline-offset: 4px;
+}
+
+.whatsapp-float svg {
+    width: 25px;
+    height: 25px;
+    flex: 0 0 auto;
+}
+
+@media (max-width: 640px) {
+    .whatsapp-float {
+        right: 16px;
+        bottom: 68px;
+        width: 54px;
+        min-width: 54px;
+        height: 54px;
+        padding: 0;
+    }
+
+    .whatsapp-float span {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        clip-path: inset(50%);
+    }
 }
 
 .portfolio-footer {
@@ -1513,79 +1630,47 @@ font-size: 20px;
 
 /* Dark Mode Styles */
 .dark-mode {
-    background-color: #121212;
-    color: #ffffff;
+    background-color: #151a22;
+    color: #f1f3f6;
 }
 
 .dark-mode body {
-    background-color: #121212;
-    color: #ffffff;
+    background: #151a22;
+    color: #f1f3f6;
 }
 
-.dark-mode .container,
-.dark-mode .details,
-.dark-mode .circle-image,
-.dark-mode nav,
-.dark-mode ul,
-.dark-mode li,
-.dark-mode a {
-    color: #ffffff;
+.dark-mode .hero-section {
+    background: linear-gradient(135deg, #171d27, #202936);
 }
 
-.dark-mode .quarter-circle {
-    background-color: #333 !important;
+.dark-mode .greeting,
+.dark-mode .role-text,
+.dark-mode .secondary-btn {
+    color: #f1f3f6;
 }
 
-.dark-mode h1,
-.dark-mode h2,
-.dark-mode p,
-.dark-mode span {
-    color: #ffffff !important;
+.dark-mode .role-text {
+    background: rgba(248, 112, 0, 0.82);
 }
 
-.dark-mode .rectangle {
-    background-color: #1e1e1e;
-    color: #ffffff;
+.dark-mode .secondary-btn {
+    border-color: rgba(255, 255, 255, 0.22);
+    background: rgba(255, 255, 255, 0.08);
 }
 
-.dark-mode .rectangle.open {
-    background-color: #1e1e1e;
+.dark-mode .social-link {
+    border-color: rgba(255, 255, 255, 0.25);
 }
 
-.dark-mode button {
-    background-color: #333;
-    color: #ffffff;
-    border: 1px solid #555;
+.dark-mode .portfolio-footer__inner,
+.dark-mode .portfolio-footer__toggle {
+    background: #111720;
 }
 
-.dark-mode button:hover {
-    background-color: #555;
+.dark-mode .portfolio-footer__contact-button {
+    color: #202936;
 }
 
-/* Theme Toggle Button */
-.theme-toggle {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    background: none;
-    border: none;
-    font-size: 24px;
-    cursor: pointer;
-    z-index: 1000;
-    padding: 10px;
-    border-radius: 50%;
-    background-color: rgba(255, 255, 255, 0.1);
-    transition: background-color 0.3s ease;
-}
-
-.theme-toggle:hover {
-    background-color: rgba(255, 255, 255, 0.2);
-}
-
-.dark-mode .theme-toggle {
-    background-color: rgba(0, 0, 0, 0.3);
-}
-
-.dark-mode .theme-toggle:hover {
-    background-color: rgba(0, 0, 0, 0.5);
+.dark-mode .portfolio-footer__toggle:hover {
+    background: #202936;
 }
