@@ -27,7 +27,7 @@ function App() {
     return (
         <>
             <Headersection theme={theme} onToggleTheme={toggleTheme} />
-            <ParticlesJS />
+            <ParticlesJS theme={theme} />
             <Home />
             <WhatsAppButton />
             <Footersection />
