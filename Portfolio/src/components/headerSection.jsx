@@ -63,7 +63,7 @@ export const Headersection = ({ theme, onToggleTheme }) => {
                     className="theme-toggle"
                     type="button"
                     aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}
-                    aria-pressed={theme === 'dark'}
+                    aria-pressed={theme === 'light'}
                     onClick={onToggleTheme}
                 >
                     <span>{theme === 'dark' ? 'Light' : 'Dark'} mode</span>
