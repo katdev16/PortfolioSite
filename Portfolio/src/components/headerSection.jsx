@@ -66,9 +66,6 @@ export const Headersection = ({ theme, onToggleTheme }) => {
                     aria-pressed={theme === 'dark'}
                     onClick={onToggleTheme}
                 >
-                    <span className="theme-toggle__icon" aria-hidden="true">
-                        {theme === 'dark' ? '☀' : '☾'}
-                    </span>
                     <span>{theme === 'dark' ? 'Light' : 'Dark'} mode</span>
                 </button>
             </div>
