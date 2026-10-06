@@ -6,6 +6,7 @@ import { Footersection } from './components/footerSection.jsx'
 import WhatsAppButton from './components/WhatsAppButton.jsx'
 import Home from './pages/home.jsx'
 import ParticlesJS from './components/particles.jsx'
+import { Analytics } from '@vercel/analytics/react'
 
 const THEME_STORAGE_KEY = 'portfolio-theme-v2'
 
@@ -27,6 +28,7 @@ function App() {
 
     return (
         <>
+            <Analytics />
             <Headersection theme={theme} onToggleTheme={toggleTheme} />
             <ParticlesJS theme={theme} />
             <Home />
